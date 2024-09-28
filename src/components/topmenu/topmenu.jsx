@@ -13,7 +13,8 @@ const TopMenu = () => {
         <nav className="bg-[#0a192f] text-white font-semibold sticky top-0 z-50">
             <div className="flex items-center justify-between px-6 py-4">
                 <div className="flex items-center">
-                    <img src={logo} alt="logo" className="w-1/6" />
+                    
+                    <h2 className='text-[#64ffda] cursor-default font-bold text-lg'>Youssef Fertani</h2>
                 </div>
 
                 {/* Burger menu for small screens */}
@@ -33,7 +34,7 @@ const TopMenu = () => {
                 <div className="hidden md:flex items-center space-x-6">
                     <a href="#about" className="text-lg hover:text-[#64ffda] transition-colors">About</a>
                     <a href="#experience" className="text-lg hover:text-[#64ffda] transition-colors">Experience</a>
-                    <a href="#work" className="text-lg hover:text-[#64ffda] transition-colors">Work</a>
+                    <a href="#projects" className="text-lg hover:text-[#64ffda] transition-colors">Projects</a>
                     <a href="#contact" className="text-lg hover:text-[#64ffda] transition-colors">Contact</a>
                 </div>
             </div>

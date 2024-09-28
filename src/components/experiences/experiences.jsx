@@ -86,7 +86,7 @@ export default function Experiences() {
                 <div className="md:w-2/3 mx-auto">
                   <h3 className="text-lg md:text-xl font-semibold text-[#64ffda]">{exp.title}</h3>
                   <h4 className="text-sm md:text-lg text-[#95e6d3]">{exp.job}</h4>
-                  <p className="text-sm md:text-base text-white text-wrap">{exp.description}</p>
+                  <p className="text-sm  text-white md:text-wrap">{exp.description}</p>
                   <p className="text-xs md:text-sm text-white mt-1">{exp.date}</p>
                 </div>
               </div>

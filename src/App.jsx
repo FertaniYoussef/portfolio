@@ -96,6 +96,10 @@ export default function App() {
   }, [smoothScroll]);
 
   return (
+    <>
+    <title>
+      Youssef Fertani
+    </title>
     <div className="App bg-[#0a192f] min-h-screen scroll-smooth">
       {isLoading ? (
         <div 
@@ -135,5 +139,6 @@ export default function App() {
         </header>
       )}
     </div>
+    </>
   );
 }

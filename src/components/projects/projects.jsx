@@ -101,7 +101,7 @@ export default function Projects() {
                       <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                       <p className="text-sm">{project.description}</p>
                       <StyledWrapper>
-      <button>See Project</button>
+      <a href={project.link} className='no-underline' >See Project</a>
     </StyledWrapper>
                     </div>
                   </div>
@@ -119,7 +119,7 @@ export default function Projects() {
   );
 }
 const StyledWrapper = styled.div`
-  button {
+  a {
   --color: #64ffda;
   font-family: inherit;
   display: inline-block;
@@ -139,7 +139,7 @@ const StyledWrapper = styled.div`
   color: var(--color);
 }
 
-button:before {
+a:before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -149,22 +149,22 @@ button:before {
   border-radius: 50%;
 }
 
-button:hover {
+a:hover {
   color: #fff;
 }
 
-button:before {
+a:before {
   top: 100%;
   left: 100%;
   transition: all 0.7s;
 }
 
-button:hover:before {
+a:hover:before {
   top: -30px;
   left: -30px;
 }
 
-button:active:before {
+a:active:before {
   background: #3a0ca3;
   transition: background 0s;
 }

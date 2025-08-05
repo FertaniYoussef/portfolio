@@ -177,7 +177,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Portfolio**: [https://fertaniyoussef.github.io/portfolio](https://fertaniyoussef.github.io/portfolio)
 - **GitHub**: [@FertaniYoussef](https://github.com/FertaniYoussef)
-- **Email**: [Your email here]
+- **Email**: [yousseffertani.pro@gmail.com]
 
 ---
 

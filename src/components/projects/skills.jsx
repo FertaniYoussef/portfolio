@@ -20,21 +20,20 @@ const skills = [
   { name: 'C#', image: csharp },
   { name: 'Python', image: python },
   { name: 'Java', image: java },
-  // Add more skills as needed
 ];
 
 export default function SkillsCarousel() {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 5,
+    slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 3000,
+    speed: 2000,
     autoplaySpeed: 0,
     cssEase: "linear",
     rtl: true,
-    pauseOnHover: false,
+    pauseOnHover: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -44,7 +43,7 @@ export default function SkillsCarousel() {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1
@@ -61,21 +60,27 @@ export default function SkillsCarousel() {
   };
 
   return (
-    <section className="py-16 my-auto" id="skills">
-      <div className="container mx-auto px-4 ">
-        <h2 className="text-3xl font-bold mb-8 text-[#64ffda] text-center uppercase ">My Knowledge</h2>
-        <div className="overflow-hidden  rounded-lg">
+    <section className="py-16" id="skills">
+      <div className="max-w-6xl mx-auto px-8">
+        <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-accent text-center tracking-wide roman-accent">
+          Technologies & Skills
+        </h2>
+        
+        <div className="overflow-hidden rounded-2xl bg-light/50 border border-light p-8">
           <Slider {...settings}>
             {skills.concat(skills).map((skill, index) => (
-              <div key={index} className="px-2">
-                <div className="flex flex-col items-center bg-white rounded-full h-24 w-24">
-                  <img 
-                    src={skill.image} 
-                    alt={skill.name}
-                    className="w-20 h-20 object-contain mb-2 my-auto "
-                    
-                  />
-                  
+              <div key={index} className="px-4">
+                <div className="group flex flex-col items-center justify-center bg-light rounded-xl p-6 border border-light hover:border-accent/30 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-roman card-hover">
+                  <div className="relative w-16 h-16 mb-4">
+                    <img 
+                      src={skill.image} 
+                      alt={skill.name}
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  <p className="text-secondary text-sm font-medium text-center group-hover:text-accent transition-colors duration-300">
+                    {skill.name}
+                  </p>
                 </div>
               </div>
             ))}

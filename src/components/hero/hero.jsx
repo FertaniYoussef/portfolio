@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import cv from '../../pdf/cv.pdf';
+import me from '../../images/me.jpg';
 
 export default function HeroSection() {
   const [typedText, setTypedText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to handle modal visibility
-  const fullText = "Hi, my name is";
+  const [currentRole, setCurrentRole] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const roles = [
+    "AI Engineer",
+    "Software Engineer", 
+    "UX Designer",
+    "Machine Learning Specialist",
+    "Full-Stack Developer"
+  ];
+
+  const fullText = "Hello, I'm";
 
   useEffect(() => {
     let timeouts = [];
@@ -26,163 +36,177 @@ export default function HeroSection() {
       setShowCursor((prev) => !prev);
     }, 500);
 
+    // Role rotation
+    const roleInterval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 3000);
+
     return () => {
       timeouts.forEach(clearTimeout);
       clearInterval(cursorInterval);
+      clearInterval(roleInterval);
     };
-  }, []);
+  }, [roles.length]);
 
   const handleResumeClick = () => {
-    setIsModalOpen(true); // Open modal when button is clicked
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
-    setIsModalOpen(false); // Close modal when close button is clicked
+    setIsModalOpen(false);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0a192f] text-white p-8">
-      <StyledWrapper>
-        <div className="max-w-3xl">
-          <p className="text-[#64ffda] mb-5 text-lg">
-            {typedText}
-            {showCursor && <span className="cursor">|</span>}
-          </p>
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">Youssef Fertani.</h1>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-[#8892b0]">
-            I build things for the web.
-          </h2>
-          <p className="text-[#8892b0] mb-8 text-lg max-w-xl">
-            I'm a software engineer specializing in building websites and machine learning models. Currently, studying my last semester at {' '}
-            <span className="text-[#64ffda]">3IL</span>.
-          </p>
-          <StyledWrapper>
-            <button className='resume' onClick={handleResumeClick}>MY RESUME</button>
-          </StyledWrapper>
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-white p-8 pt-32 lg:pt-40 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-emerald-500/5 dark:bg-emerald-400/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-teal-500/5 dark:bg-teal-400/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-emerald-500/3 to-teal-500/3 dark:from-emerald-400/3 dark:to-teal-400/3 rounded-full blur-3xl"></div>
+      </div>
 
-        {/* Modal */}
-        {isModalOpen && (
-          <Modal>
-            <div className="modal-content">
-              <button className="text-red-500 font-bold text-right w-full" onClick={closeModal}>X</button>
-              <iframe
-                src= {cv} // Replace with the actual path to your PDF file
-                width="100%"
-                height="100%"
-                title="Resume PDF"
-              />
+      {/* Floating Tech Icons */}
+      <div className="absolute inset-0 pointer-events-none">
+        {['🧠', '⚛️', '🐍', '⚡', '🎨', '☁️'].map((icon, index) => (
+          <div
+            key={index}
+            className="absolute text-4xl opacity-10 animate-float"
+            style={{
+              left: `${20 + index * 15}%`,
+              top: `${30 + (index % 2) * 40}%`,
+              animationDelay: `${index * 0.5}s`,
+              animationDuration: `${3 + index}s`
+            }}
+          >
+            {icon}
+          </div>
+        ))}
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Column - Content */}
+          <div className="text-center lg:text-left">
+            <div className="mb-8">
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 backdrop-blur-sm border border-emerald-500/20 dark:border-teal-500/20 rounded-full text-emerald-600 dark:text-emerald-400 text-lg font-medium">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full mr-3 animate-pulse"></span>
+                {typedText}
+                {showCursor && <span className="animate-pulse">|</span>}
+              </div>
             </div>
-          </Modal>
-        )}
-      </StyledWrapper>
+            
+            <h1 className="text-6xl lg:text-8xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
+              Youssef
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
+                Fertani
+              </span>
+            </h1>
+            
+            <div className="mb-8">
+              <h2 className="text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-4">
+                I'm a{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-bold">
+                  {roles[currentRole]}
+                </span>
+              </h2>
+              <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">
+                Fresh Software Engineering graduate passionate about creating innovative solutions that bridge the gap between AI and modern web development. 
+                I specialize in building intelligent applications with optimized performance and exceptional user experiences.
+              </p>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6 mb-8">
+              <div className="text-center">
+                <div className="text-3xl lg:text-4xl font-bold text-gradient mb-2">Bac+5</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Education</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl lg:text-4xl font-bold text-gradient mb-2">25+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Technologies</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl lg:text-4xl font-bold text-gradient mb-2">6+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Projects</div>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <button
+                onClick={handleResumeClick}
+                className="px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-xl hover:from-emerald-700 hover:to-teal-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                View Resume
+              </button>
+              <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-8 py-4 border-2 border-emerald-600 dark:border-emerald-400 text-emerald-600 dark:text-emerald-400 font-semibold rounded-xl hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-400 dark:hover:text-white transform hover:scale-105 transition-all duration-300"
+              >
+                Get In Touch
+              </button>
+            </div>
+          </div>
+
+          {/* Right Column - Image */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative">
+              <div className="w-80 h-80 lg:w-96 lg:h-96 relative">
+                {/* Background Glow */}
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse"></div>
+                
+                {/* Image Container */}
+                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
+                  <img
+                    src={me}
+                    alt="Youssef Fertani"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Floating Elements */}
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-white text-2xl animate-bounce">
+                  🚀
+                </div>
+                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-teal-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-xl animate-bounce" style={{ animationDelay: '0.5s' }}>
+                  ⚛️
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Resume Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 max-w-md w-full">
+            <div className="text-center">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                Download Resume
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                Click the button below to download my resume
+              </p>
+              <div className="flex gap-4">
+                <a
+                  href={cv}
+                  download
+                  className="flex-1 px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-lg hover:from-emerald-700 hover:to-teal-700 transition-all duration-300"
+                >
+                  Download PDF
+                </a>
+                <button
+                  onClick={closeModal}
+                  className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-
-const StyledWrapper = styled.div`
-  /* Your existing styles... */
-  
-  .resume {
-    width: 10em;
-    position: relative;
-    height: 3.5em;
-    border: 3px ridge #64ffda;
-    outline: none;
-    background-color: #0a192f;
-    color: white;
-    transition: 1s;
-    border-radius: 0.3em;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  .resume::after {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 3%;
-    width: 95%;
-    height: 40%;
-    background-color: #0a192f;
-    transition: 0.5s;
-    transform-origin: center;
-  }
-
-  .resume::before {
-    content: "";
-    transform-origin: center;
-    position: absolute;
-    top: 80%;
-    left: 3%;
-    width: 95%;
-    height: 40%;
-    background-color: #0a192f;
-    transition: 0.5s;
-  }
-
-  .resume:hover::before, button:hover::after {
-    transform: scale(0);
-  }
-
-  .resume:hover {
-    box-shadow: inset 0px 0px 25px #64ffda;
-  }
-
-  .cursor {
-    background-color: #64ffda;
-    width: 1px;
-    height: 1px;
-    margin-left: 2px;
-    animation: blink 1s steps(2, start) infinite;
-  }
-
-  @keyframes blink {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-  }
-`;
-
-const Modal = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-
-  .modal-content {
-    background: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    max-width: 80%;
-    max-height: 80%;
-    position: relative;
-  }
-
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: red;
-    color: white;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-  iframe {
-    width: 100%;
-    height: 500px;
-    border: none;
-  }
-`;

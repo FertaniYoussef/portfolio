@@ -1,35 +1,21 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.678b4a1e.css",
-    "main.js": "/portfolio/static/js/main.bef5e818.js",
+    "main.css": "/portfolio/static/css/main.1237a3cb.css",
+    "main.js": "/portfolio/static/js/main.b1908053.js",
     "static/js/453.1407b060.chunk.js": "/portfolio/static/js/453.1407b060.chunk.js",
-    "static/media/LR.png": "/portfolio/static/media/LR.e0b1c83f4bb5231f1048.png",
     "static/media/scori.jpg": "/portfolio/static/media/scori.fab84ff93820a7933b18.jpg",
+    "static/media/cv.pdf": "/portfolio/static/media/cv.897e377dd4be74c8b07b.pdf",
     "static/media/ids.jpeg": "/portfolio/static/media/ids.83b6913047180548a7f4.jpeg",
-    "static/media/python.png": "/portfolio/static/media/python.397eefce24a7451dd71c.png",
     "static/media/me.jpg": "/portfolio/static/media/me.95eba0c4136882af47a3.jpg",
-    "static/media/cv.pdf": "/portfolio/static/media/cv.c3cbaa523db0c345fbbc.pdf",
-    "static/media/java.png": "/portfolio/static/media/java.fdabd4e11f1235e4e8e0.png",
-    "static/media/csharp.png": "/portfolio/static/media/csharp.766c48210078f0dd2fa1.png",
     "static/media/onlycoachlogo.png": "/portfolio/static/media/onlycoachlogo.692c79bf2c4ff66c76f9.png",
     "static/media/consulteradmin.png": "/portfolio/static/media/consulteradmin.effabb2971361967c94a.png",
-    "static/media/react.png": "/portfolio/static/media/react.e648a71158884495e955.png",
-    "static/media/yaudev.png": "/portfolio/static/media/yaudev.0980acfbd8f3774db045.png",
-    "static/media/Mongodb.png": "/portfolio/static/media/Mongodb.ee1513694baa7d582e33.png",
-    "static/media/tf.png": "/portfolio/static/media/tf.532542d2d21555940447.png",
-    "static/media/logo.png": "/portfolio/static/media/logo.958629130808af16eb96.png",
-    "static/media/smltp.png": "/portfolio/static/media/smltp.6fe31794e2ad29fd41f3.png",
-    "static/media/slick.svg": "/portfolio/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/portfolio/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/portfolio/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/portfolio/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/portfolio/index.html",
-    "main.678b4a1e.css.map": "/portfolio/static/css/main.678b4a1e.css.map",
-    "main.bef5e818.js.map": "/portfolio/static/js/main.bef5e818.js.map",
+    "main.1237a3cb.css.map": "/portfolio/static/css/main.1237a3cb.css.map",
+    "main.b1908053.js.map": "/portfolio/static/js/main.b1908053.js.map",
     "453.1407b060.chunk.js.map": "/portfolio/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.678b4a1e.css",
-    "static/js/main.bef5e818.js"
+    "static/css/main.1237a3cb.css",
+    "static/js/main.b1908053.js"
   ]
 }

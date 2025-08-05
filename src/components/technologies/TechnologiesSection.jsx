@@ -3,199 +3,193 @@ import {
   FaReact, 
   FaNodeJs, 
   FaPython, 
-  FaJs, 
-  FaHtml5, 
-  FaCss3Alt, 
-  FaWordpress, 
-  FaDocker, 
-  FaAws,
+  FaDesktop, 
+  FaServer, 
   FaChartBar,
   FaCogs
 } from 'react-icons/fa';
 import { 
-  SiNextdotjs, 
+  SiJavascript, 
   SiTypescript, 
-  SiTailwindcss, 
-  SiExpress, 
-  SiSap, 
   SiMongodb, 
   SiPostgresql, 
-  SiMysql, 
-  SiRedis,
-  SiTensorflow,
-  SiOpencv,
-  SiGit
+  SiDocker, 
+  SiAmazonwebservices, 
+  SiTensorflow, 
+  SiOpencv, 
+  SiGit, 
+  SiExpress,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiSap
 } from 'react-icons/si';
-import { 
-  BiBrain, 
-  BiCodeAlt, 
-  BiPalette, 
-  BiCog, 
-  BiServer, 
-  BiData 
-} from 'react-icons/bi';
 
 const TechnologiesSection = () => {
   const [activeCategory, setActiveCategory] = useState('all');
 
   const categories = [
-    { id: 'all', name: 'All', count: 25, icon: <BiCodeAlt /> },
-    { id: 'frontend', name: 'Frontend', count: 8, icon: <BiPalette /> },
-    { id: 'backend', name: 'Backend', count: 6, icon: <BiServer /> },
-    { id: 'database', name: 'Database', count: 4, icon: <BiData /> },
-    { id: 'ai-ml', name: 'AI/ML', count: 4, icon: <BiBrain /> },
-    { id: 'tools', name: 'Tools', count: 3, icon: <BiCog /> }
+    { id: 'all', name: 'All', icon: FaCogs },
+    { id: 'frontend', name: 'Frontend', icon: FaDesktop },
+    { id: 'backend', name: 'Backend', icon: FaServer },
+    { id: 'ai-ml', name: 'AI/ML', icon: FaChartBar },
+    { id: 'tools', name: 'Tools', icon: FaCogs }
   ];
 
   const technologies = [
     // Frontend
-    { name: 'React', category: 'frontend', proficiency: 95, icon: <FaReact /> },
-    { name: 'Next.js', category: 'frontend', proficiency: 90, icon: <SiNextdotjs /> },
-    { name: 'JavaScript', category: 'frontend', proficiency: 95, icon: <FaJs /> },
-    { name: 'TypeScript', category: 'frontend', proficiency: 85, icon: <SiTypescript /> },
-    { name: 'HTML5', category: 'frontend', proficiency: 95, icon: <FaHtml5 /> },
-    { name: 'CSS3', category: 'frontend', proficiency: 90, icon: <FaCss3Alt /> },
-    { name: 'Tailwind CSS', category: 'frontend', proficiency: 90, icon: <SiTailwindcss /> },
-    { name: 'WordPress', category: 'frontend', proficiency: 80, icon: <FaWordpress /> },
+    { name: 'React', icon: FaReact, category: 'frontend', proficiency: 90 },
+    { name: 'Next.js', icon: SiNextdotjs, category: 'frontend', proficiency: 85 },
+    { name: 'TypeScript', icon: SiTypescript, category: 'frontend', proficiency: 80 },
+    { name: 'JavaScript', icon: SiJavascript, category: 'frontend', proficiency: 90 },
+    { name: 'Tailwind CSS', icon: SiTailwindcss, category: 'frontend', proficiency: 85 },
     
     // Backend
-    { name: 'Node.js', category: 'backend', proficiency: 90, icon: <FaNodeJs /> },
-    { name: 'Python', category: 'backend', proficiency: 85, icon: <FaPython /> },
-    { name: 'Express.js', category: 'backend', proficiency: 85, icon: <SiExpress /> },
-    { name: 'PowerApps', category: 'backend', proficiency: 80, icon: <FaCogs /> },
-    { name: 'SAP', category: 'backend', proficiency: 75, icon: <SiSap /> },
-    { name: 'PowerBI', category: 'backend', proficiency: 80, icon: <FaChartBar /> },
-    
-    // Database
-    { name: 'MongoDB', category: 'database', proficiency: 85, icon: <SiMongodb /> },
-    { name: 'PostgreSQL', category: 'database', proficiency: 80, icon: <SiPostgresql /> },
-    { name: 'MySQL', category: 'database', proficiency: 75, icon: <SiMysql /> },
-    { name: 'Redis', category: 'database', proficiency: 70, icon: <SiRedis /> },
+    { name: 'Node.js', icon: FaNodeJs, category: 'backend', proficiency: 85 },
+    { name: 'Express.js', icon: SiExpress, category: 'backend', proficiency: 80 },
+    { name: 'Python', icon: FaPython, category: 'backend', proficiency: 90 },
+    { name: 'MongoDB', icon: SiMongodb, category: 'backend', proficiency: 75 },
+    { name: 'PostgreSQL', icon: SiPostgresql, category: 'backend', proficiency: 70 },
     
     // AI/ML
-    { name: 'Machine Learning', category: 'ai-ml', proficiency: 85, icon: <SiTensorflow /> },
-    { name: 'Computer Vision', category: 'ai-ml', proficiency: 80, icon: <SiOpencv /> },
-    { name: 'OpenCV', category: 'ai-ml', proficiency: 75, icon: <SiOpencv /> },
-    { name: 'RAG Systems', category: 'ai-ml', proficiency: 85, icon: <BiBrain /> },
+    { name: 'TensorFlow', icon: SiTensorflow, category: 'ai-ml', proficiency: 85 },
+    { name: 'OpenCV', icon: SiOpencv, category: 'ai-ml', proficiency: 80 },
+    { name: 'Machine Learning', icon: FaChartBar, category: 'ai-ml', proficiency: 85 },
+    { name: 'Deep Learning', icon: FaChartBar, category: 'ai-ml', proficiency: 80 },
     
     // Tools
-    { name: 'Git', category: 'tools', proficiency: 90, icon: <SiGit /> },
-    { name: 'Docker', category: 'tools', proficiency: 75, icon: <FaDocker /> },
-    { name: 'AWS', category: 'tools', proficiency: 70, icon: <FaAws /> }
+    { name: 'Git', icon: SiGit, category: 'tools', proficiency: 90 },
+    { name: 'Docker', icon: SiDocker, category: 'tools', proficiency: 75 },
+    { name: 'AWS', icon: SiAmazonwebservices, category: 'tools', proficiency: 70 },
+    { name: 'SAP', icon: SiSap, category: 'tools', proficiency: 65 }
   ];
 
-  // Filter technologies based on active category
-  const getFilteredTechnologies = () => {
-    if (activeCategory === 'all') {
-      return technologies;
-    }
-    return technologies.filter(tech => tech.category === activeCategory);
-  };
-
-  const filteredTechnologies = getFilteredTechnologies();
+  const filteredTechnologies = activeCategory === 'all' 
+    ? technologies 
+    : technologies.filter(tech => tech.category === activeCategory);
 
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-emerald-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-7xl mx-auto">
+    <section id="technologies" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 to-emerald-50 dark:from-gray-900 dark:to-gray-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-medium mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
             <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>
             Technical Skills
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Technologies
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+            Technologies &
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
+              Tools
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            My technical arsenal for building innovative solutions
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto px-4">
+            A comprehensive toolkit of modern technologies and frameworks I use to build 
+            intelligent, scalable, and user-friendly applications.
           </p>
         </div>
 
-        {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 rounded-2xl font-medium transition-all duration-300 flex items-center space-x-2 ${
-                activeCategory === category.id
-                  ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg'
-                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600'
-              }`}
-            >
-              <span className="text-lg">{category.icon}</span>
-              <span>{category.name} ({category.count})</span>
-            </button>
-          ))}
+        {/* Category Filter - Mobile Optimized */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
+          {categories.map((category) => {
+            const IconComponent = category.icon;
+            return (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`flex items-center px-3 sm:px-4 py-2 sm:py-3 rounded-xl font-medium text-sm sm:text-base transition-all duration-300 ${
+                  activeCategory === category.id
+                    ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg'
+                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 border border-gray-200 dark:border-gray-700'
+                }`}
+              >
+                <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                {category.name}
+              </button>
+            );
+          })}
         </div>
 
-        {/* Technologies Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
-          {filteredTechnologies.map((tech, index) => (
-            <div
-              key={tech.name}
-              className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-            >
-              {/* Icon and Name */}
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="text-3xl text-emerald-600 dark:text-emerald-400">{tech.icon}</div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                    {tech.name}
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 capitalize">
-                    {tech.category}
-                  </p>
+        {/* Technologies Grid - Mobile Optimized */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          {filteredTechnologies.map((tech, index) => {
+            const IconComponent = tech.icon;
+            return (
+              <div
+                key={index}
+                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-4 sm:p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="flex items-center mb-3 sm:mb-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mr-3 sm:mr-4 group-hover:scale-110 transition-transform duration-300">
+                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">
+                      {tech.name}
+                    </h3>
+                    <div className="flex items-center mt-1">
+                      <div className="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2 mr-2">
+                        <div
+                          className="bg-gradient-to-r from-emerald-500 to-teal-600 h-2 rounded-full transition-all duration-300"
+                          style={{ width: `${tech.proficiency}%` }}
+                        ></div>
+                      </div>
+                      <span className="text-xs sm:text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                        {tech.proficiency}%
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
+            );
+          })}
+        </div>
 
-              {/* Proficiency Bar */}
-              <div className="mb-4">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
-                    Proficiency
-                  </span>
-                  <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">
-                    {tech.proficiency}%
-                  </span>
-                </div>
-                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-                  <div 
-                    className="h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full transition-all duration-1000 ease-out"
-                    style={{ width: `${tech.proficiency}%` }}
-                  ></div>
-                </div>
+        {/* Skills Summary - Mobile Optimized */}
+        <div className="mt-12 sm:mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-4 sm:p-6 text-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <FaDesktop className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">Frontend</h3>
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
+                Modern UI frameworks and responsive design
+              </p>
             </div>
-          ))}
-        </div>
 
-        {/* Skills Summary */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
-            <div className="text-5xl mb-4 text-emerald-600 dark:text-emerald-400"><BiPalette /></div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Frontend Expert</h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              Modern React, Next.js, and responsive design with Tailwind CSS
-            </p>
-          </div>
-          <div className="text-center p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
-            <div className="text-5xl mb-4 text-emerald-600 dark:text-emerald-400"><BiServer /></div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Backend Developer</h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              Node.js, Python, and enterprise solutions with SAP & PowerApps
-            </p>
-          </div>
-          <div className="text-center p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
-            <div className="text-5xl mb-4 text-emerald-600 dark:text-emerald-400"><BiBrain /></div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">AI Engineer</h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              Machine Learning, Computer Vision, and RAG systems development
-            </p>
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-4 sm:p-6 text-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <FaServer className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">Backend</h3>
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
+                Robust server-side development and APIs
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-4 sm:p-6 text-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <FaChartBar className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">AI/ML</h3>
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
+                Machine learning and intelligent systems
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-4 sm:p-6 text-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <FaCogs className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">Tools</h3>
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
+                Development tools and cloud platforms
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
